@@ -48,8 +48,8 @@ jobs:
         run: |
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 780139020397.dkr.ecr.us-east-1.amazonaws.com
 
-      - name: Build and Push Image to ECR (Manual)
+      - name: Build and Push Image to ECR 
         run: |
-          docker build -t medilab-2 
-          docker tag medilab-2:latest 780139020397.dkr.ecr.us-east-1.amazonaws.com/medilab-2:v2
+          docker build -t medilab-2
+          docker tag medilab-2:latest 780139020397.dkr.ecr.us-east-1.amazonaws.com/medilab-2:v1
           docker push 780139020397.dkr.ecr.us-east-1.amazonaws.com/medilab-2:v1
