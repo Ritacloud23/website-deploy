@@ -45,6 +45,6 @@ jobs:
          
          name: Build and push docker image to ECR
          run: |
-             docker build -t Medilab-1.0.0:v2
-             docker tag cloud-digital-2:latest public.ecr.aws/q6w1s1b5/Medilab-1.0.0:v2
-             docker push public.ecr.aws/q6w1s1b5/Medilab-1.0.0:latest:v2
+             docker build -t Medilab-1.0.0
+             docker tag cloud-digital-2:latest public.ecr.aws/q6w1s1b5/Medilab-1.0.0
+             docker push public.ecr.aws/q6w1s1b5/Medilab-1.0.0:latest
