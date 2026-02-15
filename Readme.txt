@@ -1,4 +1,4 @@
-# Containerized Static Website with CI/CD to AWS ECR
+## Containerized Static Website with CI/CD to AWS ECR
 
 ## 📌 Project Overview
 
