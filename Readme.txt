@@ -1,121 +1,45 @@
-## Containerized Static Website with CI/CD to AWS ECR
+## Containerized Static Website Deployment with CI/CD to AWS ECR
+Project Overview
 
-## 📌 Project Overview
+This project demonstrates the end-to-end containerization and automated delivery of a static HTML medical directory website (Mediplus template) using Docker and GitHub Actions CI/CD, with image publishing to Amazon Elastic Container Registry (ECR).
 
-This project demonstrates the containerization and automated delivery of a static HTML website using Docker and GitHub Actions.
+The objective of this implementation is to eliminate manual deployment processes and establish a repeatable, production-aligned CI/CD workflow.
 
-The application is a static medical directory website (Mediplus template) packaged into a Docker image and automatically built and pushed to Amazon Elastic Container Registry (ECR) through a CI/CD pipeline.
+This repository showcases practical DevOps engineering skills, including:
 
-This setup eliminates manual builds and ensures reproducible, automated deployments.
+Docker containerization
 
----
+GitHub Actions workflow automation
 
-## 🏗 Architecture Overview
+Secure AWS authentication using IAM credentials
 
-The delivery pipeline follows this flow:
+Automated image build and push to AWS ECR
 
-Developer Push  
-⬇  
-GitHub Actions Trigger  
-⬇  
-Docker Image Build  
-⬇  
-Image Push to AWS ECR  
-⬇  
-Container Image Ready for Deployment  
+Infrastructure-independent deployment architecture
 
----
+Architecture Overview
 
-## 🧱 Project Structure
+The delivery pipeline follows this automated workflow:
 
+Developer Push
+↓
+GitHub Actions Trigger
+↓
+Docker Image Build
+↓
+Authentication to AWS
+↓
+Image Push to Amazon ECR
 
+No manual Docker builds.
+No local image tagging.
+No direct registry interaction.
 
-.
-├── .github/
-│ └── workflows/
-│ └── cicd.yml
-├── css/
-├── js/
-├── img/
-├── index.html
-├── portfolio-details.html
-├── contact.html
-├── Dockerfile
-└── README.md
+All delivery is pipeline-driven.
 
+Technologies Used
 
----
-
-## 🚀 Key Features
-
-- Static website built with HTML, CSS, and JavaScript
-- Dockerized for portability and consistency
-- GitHub Actions CI/CD pipeline
-- Automated Docker image build on push
-- Secure image push to AWS ECR
-- No manual Docker builds or pushes
-- Secrets managed through GitHub repository secrets
-
----
-
-## 🐳 Docker Configuration
-
-The Dockerfile packages the static site into a lightweight web server container.
-
-Example structure:
-
-```dockerfile
-FROM nginx: alpine
-COPY. /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-
-
-This ensures:
-
-Lightweight image
-
-Fast build time
-
-Simple static file serving
-
-Production-ready base image
-
-⚙️ CI/CD Pipeline
-
-The GitHub Actions workflow performs the following:
-
-Checks out the repository
-
-Configures AWS credentials
-
-Logs in to Amazon ECR
-
-Builds Docker image
-
-Tag the image with commit SHA or latest
-
-Pushes image to ECR
-
-Trigger:
-
-On push to main branch
-
-This enforces automation and consistency in image builds.
-
-🔐 Security Practices
-
-AWS credentials stored as GitHub Secrets
-
-No hardcoded credentials
-
-Controlled branch-based deployment
-
-Immutable container images
-
-📦 Technologies Used
-
-HTML / CSS / JavaScript
+HTML5 / CSS3 (Static Website)
 
 Docker
 
@@ -123,49 +47,90 @@ GitHub Actions
 
 AWS ECR
 
-NGINX (Alpine)
+IAM (Secure access control)
 
-🎯 What This Project Demonstrates
+CI/CD Automation
 
-Infrastructure automation mindset
+Key DevOps Implementations
+1. Docker Containerization
 
-CI/CD pipeline design
+Created production-ready Dockerfile
 
-Containerization best practices
+Lightweight container build
 
-Secure credential management
+Reproducible environment
 
-Cloud registry integration
+Consistent image tagging strategy
 
-Production-ready delivery workflow
+2. CI/CD Pipeline (GitHub Actions)
 
-🛠 Future Improvements
+Triggered on push to main branch
 
-Deploy image to ECS or EKS
+Automated Docker image build
 
-Add multi-stage Docker builds
+Secure AWS credential injection via GitHub Secrets
 
-Implement image vulnerability scanning
+ECR login using AWS CLI
 
-Add an automated testing stage
+Image push to AWS ECR repository
 
-Add staging and production environments
+3. Secure Credential Management
 
-## Author
+No hardcoded secrets
 
-Built as part of a DevOps portfolio demonstrating containerized application delivery and CI/CD pipeline automation.
+AWS Access Key stored in GitHub Secrets
 
+Least-privilege IAM configuration
 
----
+Token-based registry authentication
 
-## Why This README Is Strong
+Security Practices Applied
 
-This version:
+Secrets managed via GitHub encrypted secrets
 
-- Explains architecture
-- Shows DevOps thinking
-- Mentions security
-- Highlights automation
-- Speaks in recruiter-friendly language
-- Avoids beginner tone
-- Focuses on engineering decisions
+No credentials stored in the repository
+
+Controlled execution through a branch-based trigger
+
+Registry authentication is performed during pipeline runtime only
+
+Why This Project Matters
+
+This implementation reflects real-world DevOps practices:
+
+Infrastructure-independent deployments
+
+Pipeline-first delivery model
+
+Reproducible builds
+
+Secure container publishing
+
+Elimination of manual deployment risk
+
+It demonstrates practical experience in container lifecycle management and CI/CD automation — core competencies required in modern DevOps and Cloud Engineering roles.
+
+Repository Structure
+.github/workflows/   → CI/CD workflow definition
+Dockerfile           → Container build configuration
+index.html           → Static website entry point
+css/                 → Styles
+js/                  → Scripts
+img/                 → Static assets
+
+Future Enhancements
+
+Deployment to Amazon ECS or EKS
+
+Blue/Green deployment strategy
+
+Image scanning integration
+
+Version tagging strategy
+
+Infrastructure as Code for full-stack automation
+
+Author
+
+Cloud & DevOps Engineer
+Focused on production-grade automation, infrastructure as code, and secure delivery pipelines.
