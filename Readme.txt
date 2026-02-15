@@ -1,9 +1,9 @@
 ## Containerized Static Website Deployment with CI/CD to AWS ECR
 Project Overview
 
-This project demonstrates the end-to-end containerization and automated delivery of a static HTML medical directory website (Mediplus template) using Docker and GitHub Actions CI/CD, with image publishing to Amazon Elastic Container Registry (ECR).
+This project demonstrates the end-to-end containerization and automated delivery of a static HTML medical directory website using Docker and GitHub Actions CI/CD, with image publishing to Amazon Elastic Container Registry (ECR).
 
-The objective of this implementation is to eliminate manual deployment processes and establish a repeatable, production-aligned CI/CD workflow.
+The goal of this implementation is to eliminate manual deployment processes and set up a repeatable, production-ready CI/CD workflow.
 
 This repository showcases practical DevOps engineering skills, including:
 
